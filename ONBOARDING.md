@@ -59,26 +59,26 @@ cd CNoBS
 
 ### Windows (PowerShell, using clang)
 ```powershell
-cd lessons
-clang 01-output-first.c -o out.exe
+cd lessons/00-basics
+clang 01-types-and-output.c -o out.exe
 ./out.exe
 ```
 One-liner:
 ```powershell
-clang 01-output-first.c -o out.exe; if ($?) { ./out.exe }
+clang 01-types-and-output.c -o out.exe; if ($?) { ./out.exe }
 ```
 
 ### Windows (PowerShell, using gcc from MSYS2)
 ```powershell
-cd lessons
-gcc 01-output-first.c -o out.exe
+cd lessons/00-basics
+gcc 01-types-and-output.c -o out.exe
 ./out.exe
 ```
 
 ### macOS / Linux / WSL / Git Bash
 ```bash
-cd lessons
-gcc 01-output-first.c && ./a.out
+cd lessons/00-basics
+gcc 01-types-and-output.c && ./a.out
 ```
 (Use `clang` instead of `gcc` on macOS if you prefer — same flags.)
 
@@ -99,18 +99,28 @@ If you see that — setup done. You're coding C.
 Do them in order. Each takes 10-15 min.
 
 ```
-lessons/01-output-first.c     <- start
-lessons/02-pointers-visual.c
-lessons/03-arrays-memory.c
-lessons/04-structs.c
+lessons/00-basics/             <- start: types, ops, control flow
+lessons/01-functions/          <- define, call, scope
+lessons/02-pointers/           <- the hard part (6 lessons, take your time)
+lessons/03-memory/             <- stack vs heap, malloc/free
+lessons/04-strings/            <- char arrays, the \0
+lessons/05-structs/            <- your own types
+lessons/06-file-io/            <- read + write files
+lessons/07-advanced/           <- typedef, unions, bit ops
         |
-challenges/01-fix-the-loop.c  <- find + fix bugs
-challenges/02-pointer-puzzle.c
+challenges/                    <- tiered break-it labs
+practice/                      <- bonus problems with skeletons
+patterns/                      <- real copy-paste snippets
         |
-patterns/string-search.c      <- real-code snippet
-        |
-projects/guess/guess.c        <- first real program
-projects/phonebook/phonebook.c
+projects/guess/                <- first real program
+projects/phonebook/            <- structs + file I/O combined
+projects/capstone/             <- expression evaluator (final)
+```
+
+After setup, also try the local test runner:
+```bash
+make compile-check
+make test
 ```
 
 **How to use a lesson:**
@@ -131,8 +141,8 @@ If a lesson takes more than 20 min, skip the BREAK IT and come back. Don't stall
 | `'gcc' is not recognized` (Windows) | Compiler not on PATH. Reopen terminal after install. Or use `clang`. |
 | `&&` parser error in PowerShell 5.1 | Use `; if ($?) { ... }` instead. Or upgrade to PowerShell 7. |
 | `a.out` not found on Windows | Windows builds `a.exe`. Use `./a.exe` or compile with `-o name.exe`. |
-| Segfault | You dereferenced a bad pointer. Go back to [lessons/02-pointers-visual.c](lessons/02-pointers-visual.c). |
-| Garbage output | Probably uninitialized variable or buffer overrun. Read the BREAK IT note in lesson 03. |
+| Segfault | You dereferenced a bad pointer. See [lessons/02-pointers/06-common-pointer-bugs.c](lessons/02-pointers/06-common-pointer-bugs.c) + [docs/SEGFAULT_DEBUGGING.md](docs/SEGFAULT_DEBUGGING.md). |
+| Garbage output | Probably uninitialized variable or buffer overrun. See the BREAK IT note in [lessons/02-pointers/03-arrays-as-pointers.c](lessons/02-pointers/03-arrays-as-pointers.c). |
 | `undefined reference to ...` | Forgot to `#include` a header, or function name typo. |
 
 ---

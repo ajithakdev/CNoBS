@@ -2,6 +2,9 @@
 
 > **C, No BS.** That's it. That's the name.
 
+[![compile-check](https://github.com/ajithakdev/learn-c/actions/workflows/compile-check.yml/badge.svg)](https://github.com/ajithakdev/learn-c/actions/workflows/compile-check.yml)
+[![test](https://github.com/ajithakdev/learn-c/actions/workflows/test.yml/badge.svg)](https://github.com/ajithakdev/learn-c/actions/workflows/test.yml)
+
 **C without the bullshit.** No 400-page books. No "hello world" for 3 chapters. No theory dumps. Code that runs, breaks, and teaches you why — in 5 minutes or it's a bad lesson.
 
 > You have 20 minutes between classes. You learn by breaking things. You quit if the lesson doesn't pay off in 5. This repo is for you.
@@ -12,117 +15,127 @@
 
 Every language you use is written in C, runs on a runtime written in C, or borrows C's mental model (pointers, memory, structs). Learn C once, read the source of anything. It's also the fastest path to understanding *why* your Python is slow.
 
----
-
-## Learning Path
-
-```
-                    START HERE
-                        |
-              [ lessons/ ] 10-15 min each
-                        |
-        +---------------+---------------+
-        |               |               |
-     basics         pointers         structs
-   (types, if,    (the hard part,    (real data)
-    loops, fns)    5 lessons w/
-                   ASCII memory)
-        |               |               |
-        +-------+-------+
-                |
-        [ challenges/ ]
-        break-it labs, copy-paste,
-        change ONE thing, see Y
-                |
-        [ patterns/ ]
-        snippets people actually
-        write (sort, search, concat)
-                |
-        [ projects/ ]
-        1. guess-the-number  (beginner)
-        2. phonebook         (intermediate)
-                |
-              SHIP
-```
+Deep dive: [docs/WHY_C_STILL_MATTERS.md](docs/WHY_C_STILL_MATTERS.md)
 
 ---
 
-## Quick Start (under 2 minutes)
+## Learning path
+
+```
+   START                  HARD PART                  SHIP
+     |                        |                        |
+     v                        v                        v
+ 00-basics    01-functions    02-pointers   03-memory   04-strings
+   (3)            (2)             (6)          (2)         (3)
+                                  |
+                                  |   05-structs  06-file-io  07-advanced
+                                  v       (2)         (2)         (3)
+                              mnemonics
+                                  |
+                                  v
+                           challenges/         tier 1 (foundational)
+                                  |            tier 2 (pointers)
+                                  v            tier 3 (integration)
+                            practice/          easy / medium / hard
+                                  |
+                                  v
+                            projects/
+                              guess (beginner)
+                              phonebook (intermediate)
+                              capstone (expression evaluator)
+```
+
+23 lessons. ~10-15 min each. ~8 weeks at 4-5 hrs/week.
+
+---
+
+## Quick start
 
 ```bash
-git clone <this-repo>
-cd CNoBS/lessons
-gcc 01-output-first.c && ./a.out
+git clone https://github.com/ajithakdev/learn-c CNoBS
+cd CNoBS
+gcc lessons/00-basics/01-types-and-output.c && ./a.out
 ```
 
-You need:
-- A C compiler. **gcc** (Linux/Mac/WSL) or **clang** (Mac). Windows: install MSYS2 or use WSL.
-- A terminal. That's it.
-
-Check it works:
-
-```bash
-gcc --version
-```
-
-If you see a version number, you're done with setup. No IDE. No `package.json`. No `node_modules`. C is a 50-year-old language that still runs on a fresh laptop with zero config.
+Full setup (Windows / macOS / Linux): [ONBOARDING.md](ONBOARDING.md).
 
 ---
 
-## How Lessons Work (Reverse Teaching)
+## How a lesson works
 
-Every lesson follows the same pattern:
-
-1. **Output first.** Look at what it prints. Guess what the code does.
-2. **Code reveal.** Read 20-30 lines max.
+1. **Output first.** Look at expected stdout. Guess what the code does.
+2. **Code reveal.** Read ≤30 lines.
 3. **Why it works.** One paragraph. No theory dump.
-4. **ASCII diagram.** See the memory, stack, or pointer.
-5. **Break it.** Change one line. Predict the new output. Run it.
+4. **ASCII diagram.** Memory, stack, or pointer.
+5. **BREAK IT.** Change one line. Predict. Run. See.
 
-You're not reading. You're debugging from minute one.
-
----
-
-## What You'll Know By The End
-
-You'll write C that allocates memory, manages pointers without segfaulting (most of the time), reads and writes files, builds small data structures (linked lists, hash tables — the easy way), and reads other people's C code without your eyes glazing over. You won't be a kernel hacker. You will be able to debug a segfault, understand why `strcpy` is dangerous, and follow along when someone explains how malloc works.
-
-Honest scope: **beginner → comfortable intermediate**. Not "systems programmer." Not yet.
+You're debugging from minute one.
 
 ---
 
-## Repo Map
+## Repo map
 
 ```
 CNoBS/
-├── README.md            <- you are here
-├── lessons/             <- atomic, ~10 min each
-│   ├── 01-output-first.c
-│   ├── 02-pointers-visual.c
-│   ├── 03-arrays-memory.c
-│   └── 04-structs.c
-├── challenges/          <- break-it labs
-│   ├── 01-fix-the-loop.c
-│   └── 02-pointer-puzzle.c
-├── patterns/            <- real snippets
-│   └── string-search.c
-└── projects/
-    ├── guess/           <- beginner
-    │   └── guess.c
-    └── phonebook/       <- intermediate
-        └── phonebook.c
+├── README.md                   <- you are here
+├── ONBOARDING.md               <- compiler setup + first run
+├── CONTRIBUTING.md             <- PR rules
+├── Makefile                    <- make compile-check / make test
+├── .github/workflows/          <- CI: every PR compiles + diffs output
+├── lessons/                    <- atomic, ≤30 lines each
+│   ├── 00-basics/              types, operators, control flow
+│   ├── 01-functions/           defs, scope, stack
+│   ├── 02-pointers/            6 lessons, ASCII memory every step
+│   ├── 03-memory/              stack vs heap, malloc/free
+│   ├── 04-strings/             char arrays, string.h, strcpy dangers
+│   ├── 05-structs/             your own types
+│   ├── 06-file-io/             fopen/fgets/fprintf
+│   └── 07-advanced/            typedef, unions, bit ops
+├── challenges/                 <- tiered break-it labs
+│   ├── tier-1-foundational/
+│   ├── tier-2-pointers/
+│   ├── tier-3-integration/
+│   └── solutions/              (hidden via .gitignore)
+├── practice/                   <- bonus problems with skeletons
+│   ├── 01-easy-warmup/
+│   ├── 02-medium/
+│   └── 03-hard/
+├── patterns/                   <- real copy-paste snippets
+├── mnemonics/                  <- one-page memory aids (ASCII)
+├── projects/
+│   ├── guess/                  beginner
+│   ├── phonebook/              intermediate
+│   └── capstone/               expression evaluator
+├── tests/                      <- expected_outputs + test_lessons.sh
+├── scripts/                    <- compile_check.sh
+└── docs/                       <- optional deeper reads
 ```
 
 ---
 
-## Anti-Hype Promise
+## Running tests locally
 
-- No "C is hard" gaslighting. It's small. K&R is 272 pages. Your JavaScript framework docs are longer.
+```bash
+make compile-check   # compile every .c, fail on warning
+make test            # run lessons, diff stdout vs golden files
+```
+
+CI does the same on every push and PR.
+
+---
+
+## Anti-hype promise
+
+- No "C is hard" gaslighting. K&R is 272 pages. Your JS framework docs are longer.
 - No theory before code. Ever.
-- No file longer than 30 lines in lessons. If it's longer, it's a pattern.
-- Every `.c` file compiles. If one doesn't, open an issue.
+- No lesson > 30 lines. If longer, it's a pattern or project.
+- Every `.c` file compiles. If one doesn't, open an issue. CI would have caught it.
 
-Now go run `lessons/01-output-first.c`.
+---
+
+## Contributing
+
+PRs welcome. Rules in [CONTRIBUTING.md](CONTRIBUTING.md). Hard rule: don't break the build.
 
 ---
 
