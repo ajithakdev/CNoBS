@@ -28,8 +28,8 @@ int main(void) {
     if (x > y) printf("x is bigger\n");
     else       printf("y is bigger\n");
 
-    printf("counting: ");
-    for (int i = 0; i < 5; i++) printf("%d ", i);
+    printf("counting:");
+    for (int i = 0; i < 5; i++) printf(" %d", i);
     printf("\n");
 
     return 0;

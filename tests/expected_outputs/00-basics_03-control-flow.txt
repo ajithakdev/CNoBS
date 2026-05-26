@@ -1,0 +1,4 @@
+grade: B
+day 3 = Wed
+evens: 0 2 4 6 8
+sum 1..5 = 15

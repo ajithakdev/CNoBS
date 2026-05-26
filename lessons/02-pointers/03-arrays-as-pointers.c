@@ -40,8 +40,8 @@ int main(void) {
     printf("nums points to %d\n", *nums);
     printf("*(nums+2) = %d\n", *(nums + 2));
 
-    printf("walking: ");
-    for (int i = 0; i < 4; i++) printf("%d ", *(nums + i));
+    printf("walking:");
+    for (int i = 0; i < 4; i++) printf(" %d", *(nums + i));
     printf("\n");
 
     return 0;

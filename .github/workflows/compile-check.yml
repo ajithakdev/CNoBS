@@ -1,0 +1,17 @@
+name: compile-check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install gcc
+        run: sudo apt-get update && sudo apt-get install -y gcc
+      - name: Compile every .c file
+        run: make compile-check

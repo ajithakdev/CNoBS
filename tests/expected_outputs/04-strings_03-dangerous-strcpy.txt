@@ -1,0 +1,2 @@
+safe copy: hello
+truncated: hello wor

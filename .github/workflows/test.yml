@@ -1,0 +1,22 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install gcc
+        run: sudo apt-get update && sudo apt-get install -y gcc
+      - name: Run lesson test suite
+        run: make test
+      - name: Fail loudly if any lesson broke
+        if: failure()
+        run: |
+          echo "::error::A lesson failed to compile or output drifted. PR rejected."
+          exit 1

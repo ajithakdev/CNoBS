@@ -1,0 +1,30 @@
++-----------------------------------------------------------+
+| MALLOC RULES: Don't Leak, Don't Crash                     |
++-----------------------------------------------------------+
+|                                                           |
+| Every malloc must have exactly ONE free.                  |
+|                                                           |
+|   int *p = malloc(n * sizeof(int));                       |
+|   if (!p) { /* out of memory */ return -1; }              |
+|   ... use p ...                                           |
+|   free(p);                                                |
+|   p = NULL;          // defensive: prevents use-after-free|
+|                                                           |
++-----------------------------------------------------------+
+| THE FOUR SINS                                             |
+|   1. Forget to check NULL    -> crash on out-of-memory    |
+|   2. Forget to free          -> memory leak               |
+|   3. Free twice              -> heap corruption           |
+|   4. Use after free          -> UB, hard-to-find bug      |
++-----------------------------------------------------------+
+| CHEAT                                                     |
+|   malloc(n)        -> n bytes, uninitialized              |
+|   calloc(n, size)  -> n*size bytes, zeroed                |
+|   realloc(p, n)    -> resize block (may move it!)         |
+|   free(p)          -> return block to heap                |
++-----------------------------------------------------------+
+| OWNERSHIP RULE                                            |
+|   Whoever malloc'd it owns it. Document who frees.        |
+|   If a function returns a malloc'd pointer, say so.       |
+|   /* caller must free() the result */                     |
++-----------------------------------------------------------+
