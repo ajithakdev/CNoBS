@@ -5,8 +5,12 @@ a.out
 *.o
 *.obj
 
-# Phonebook project data
+# Test runner artifacts
+tests/.build/
+
+# Project local data
 projects/phonebook/book.txt
+projects/guess/best_score.txt
 
 # Editor / OS
 .vscode/
@@ -19,3 +23,7 @@ Thumbs.db
 *.dSYM/
 *.pdb
 *.ilk
+
+# Solutions hidden until requested
+challenges/solutions/*.c
+!challenges/solutions/README.md
