@@ -1,6 +1,8 @@
 # CNoBS
 
-**C without the BS.** No 400-page books. No "hello world" for 3 chapters. Just code that runs, breaks, and teaches you why.
+> **C, No BS.** That's it. That's the name.
+
+**C without the bullshit.** No 400-page books. No "hello world" for 3 chapters. No theory dumps. Code that runs, breaks, and teaches you why — in 5 minutes or it's a bad lesson.
 
 > You have 20 minutes between classes. You learn by breaking things. You quit if the lesson doesn't pay off in 5. This repo is for you.
 
