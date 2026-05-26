@@ -1,0 +1,21 @@
+# Build artifacts
+*.exe
+*.out
+a.out
+*.o
+*.obj
+
+# Phonebook project data
+projects/phonebook/book.txt
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Debug
+*.dSYM/
+*.pdb
+*.ilk
