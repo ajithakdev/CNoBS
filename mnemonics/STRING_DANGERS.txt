@@ -1,0 +1,27 @@
++-----------------------------------------------------------+
+| STRING DANGERS: C Strings Will Bite You                   |
++-----------------------------------------------------------+
+|                                                           |
+| C string = char array ending in '\0'. No length field.    |
+| strlen walks until it finds '\0'. Overwrite the '\0',     |
+| strlen never stops.                                       |
+|                                                           |
++-----------------------------------------------------------+
+| BANNED IN MODERN CODE                                     |
+|   strcpy   -> no size check, buffer overflow              |
+|   strcat   -> no size check, buffer overflow              |
+|   gets     -> deleted from C standard. dangerous.         |
+|   sprintf  -> no size check on output                     |
++-----------------------------------------------------------+
+| USE THESE INSTEAD                                         |
+|   snprintf(buf, sizeof buf, "%s", src);  // bounded fmt   |
+|   strncpy + manual buf[n-1] = '\0';      // bounded copy  |
+|   strlcpy / strlcat (BSD, some libcs)                     |
+|   fgets(buf, sizeof buf, stdin);         // bounded input |
++-----------------------------------------------------------+
+| TWO NUMBERS TO KEEP STRAIGHT                              |
+|   sizeof(buf)   = capacity (including '\0' slot)          |
+|   strlen(buf)   = length so far (excluding '\0')          |
+|                                                           |
+|   They differ by AT LEAST 1.                              |
++-----------------------------------------------------------+

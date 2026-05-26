@@ -1,0 +1,37 @@
++-----------------------------------------------------------+
+| STACK vs HEAP: Two Worlds                                 |
++-----------------------------------------------------------+
+|                                                           |
+|   high addr  +-------------------+                        |
+|              |       STACK       |  grows DOWN            |
+|              |         |         |  auto, fast            |
+|              |         v         |  small (~1-8 MB)       |
+|              |                   |                        |
+|              |                   |                        |
+|              |         ^         |                        |
+|              |         |         |                        |
+|              |       HEAP        |  grows UP              |
+|              |                   |  manual (malloc/free)  |
+|              |                   |  huge (GBs)            |
+|              +-------------------+                        |
+|              | data + code + BSS |                        |
+|   low addr   +-------------------+                        |
+|                                                           |
++-----------------------------------------------------------+
+| STACK                                                     |
+|   - Local variables                                       |
+|   - Function args                                         |
+|   - Return addresses                                      |
+|   - Auto-cleanup when function returns                    |
+|   - DON'T return a pointer to a local. It's gone.         |
++-----------------------------------------------------------+
+| HEAP                                                      |
+|   - malloc / calloc / realloc                             |
+|   - Lives until you free()                                |
+|   - Survives function returns                             |
+|   - YOU manage the lifetime                               |
++-----------------------------------------------------------+
+| QUICK PICK                                                |
+|   Need it after function returns? -> heap                 |
+|   Size known + small + short-lived? -> stack              |
++-----------------------------------------------------------+

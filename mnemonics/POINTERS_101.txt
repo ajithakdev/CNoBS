@@ -1,0 +1,34 @@
++-----------------------------------------------------------+
+| POINTERS 101: Remember This One Thing                     |
++-----------------------------------------------------------+
+|                                                           |
+| Memory is a street. Variables live in houses.             |
+|                                                           |
+|   int x = 42;        house at address 0x1000              |
+|                      inside: 42                           |
+|                                                           |
+|   int *p = &x;       pointer p holds an address           |
+|                      0x1000 (x's house address)           |
+|                                                           |
+|   *p                 "go to that house, read value"       |
+|                      returns 42                           |
+|                                                           |
+|   p++                "move to next house"                 |
+|                      now points to 0x1004 (next int)      |
+|                                                           |
++-----------------------------------------------------------+
+| GOLDEN RULE                                               |
+|   &  = "address of"                                       |
+|   *  = "value at this address"                            |
+|   They are opposites. Know one, know both.                |
++-----------------------------------------------------------+
+| THREE BUGS THAT BITE                                      |
+|   1. NULL deref:        *NULL                  -> crash   |
+|   2. Wild pointer:      int *p; *p = 5;        -> crash   |
+|   3. Use-after-free:    free(p); *p = 9;       -> UB      |
+|                                                           |
+|   Checklist before deref:                                 |
+|     - Is it NULL?                                         |
+|     - Has it been initialized?                            |
+|     - Has it been freed?                                  |
++-----------------------------------------------------------+
