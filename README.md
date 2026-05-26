@@ -2,6 +2,7 @@
 
 > **C, No BS.** That's it. That's the name.
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPL_v3-blue.svg)](LICENSE)
 [![compile-check](https://github.com/ajithakdev/learn-c/actions/workflows/compile-check.yml/badge.svg)](https://github.com/ajithakdev/learn-c/actions/workflows/compile-check.yml)
 [![test](https://github.com/ajithakdev/learn-c/actions/workflows/test.yml/badge.svg)](https://github.com/ajithakdev/learn-c/actions/workflows/test.yml)
 
@@ -136,6 +137,12 @@ CI does the same on every push and PR.
 ## Contributing
 
 PRs welcome. Rules in [CONTRIBUTING.md](CONTRIBUTING.md). Hard rule: don't break the build.
+
+---
+
+## License
+
+[GPL-3.0](LICENSE). Open source. Forks + derived works must stay GPL-3.0. You can read it, run it, change it, share it. If you ship a modified version, the source goes with it.
 
 ---
 
