@@ -1,0 +1,4 @@
+Alice lives in Paris
+via pointer: Alice / Paris
+roster[0] = Bob
+roster[1] = Carol

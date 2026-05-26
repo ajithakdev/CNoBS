@@ -1,0 +1,2 @@
+safe: value = 7
+freed pointer set to NULL (defensive)

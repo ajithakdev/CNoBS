@@ -1,0 +1,3 @@
+op(3,4) via add = 7
+op(3,4) via mul = 12
+apply twice = 16

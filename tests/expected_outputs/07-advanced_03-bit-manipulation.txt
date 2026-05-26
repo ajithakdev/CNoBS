@@ -1,0 +1,6 @@
+flags = 0x5 (READ | EXEC)
+has READ?  1
+has WRITE? 0
+after add WRITE: 0x7
+after drop READ: 0x6
+12 * 8 via shift = 96

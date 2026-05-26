@@ -1,0 +1,6 @@
+outer x = 10
+inner x = 20
+outer x still = 10
+counter call 1 = 1
+counter call 2 = 2
+counter call 3 = 3
