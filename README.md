@@ -140,6 +140,19 @@ PRs welcome. Rules in [CONTRIBUTING.md](CONTRIBUTING.md). Hard rule: don't break
 
 ---
 
+## Support
+
+CNoBS is free and stays free. If it helped you learn some C, a star, a follow on [GitHub](https://github.com/ajithakdev) or a bug report helps a lot. If you'd like to send a small thank-you:
+
+<table>
+  <tr>
+    <td align="center" valign="top" width="280"><b>From anywhere</b><br /><br /><a href="https://ko-fi.com/ajithakdev"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support me on Ko-fi" /></a><br /><br /><sub>Card or PayPal on <a href="https://ko-fi.com/ajithakdev">ko-fi.com/ajithakdev</a></sub></td>
+    <td align="center" valign="top" width="280"><b>In India, over UPI</b><br /><br /><img src="docs/images/upi-qr.svg" width="120" height="120" alt="UPI QR code for ajithakdev@sbi" /><br /><code>ajithakdev@sbi</code><br /><sub>Scan or paste into GPay, PhonePe or any UPI app</sub></td>
+  </tr>
+</table>
+
+---
+
 ## License
 
 [GPL-3.0](LICENSE). Open source. Forks + derived works must stay GPL-3.0. You can read it, run it, change it, share it. If you ship a modified version, the source goes with it.
